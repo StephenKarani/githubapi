@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.detail.DetailActivity">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:progressTint="@color/purple_500"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@color/purple_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/body_layout">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_ios"
+            app:tint="@color/white"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/repository_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:id="@+id/repository_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:layout_margin="8dp"
+            android:text="Private"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_medium"
+            android:textAlignment="center"
+            android:background="@drawable/repo_white_type"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/body_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/repository_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintCircleRadius="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/repository_full_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repository Full Name"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repository_image"/>
+
+        <TextView
+            android:id="@+id/repository_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:layout_margin="8dp"
+            android:text="Language"
+            android:textColor="@color/purple_500"
+            android:textAlignment="center"
+            android:background="@drawable/repo_type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repository_full_name"
+            app:layout_constraintBottom_toTopOf="@id/label_description"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/label_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Description"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repository_language"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/repository_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Description"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/label_stats"/>
+
+        <TextView
+            android:id="@+id/label_stats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Profile Details"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repository_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/label_url"/>
+
+        <TextView
+            android:id="@+id/label_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="5dp"
+            android:text="Url"
+            android:fontFamily="@font/montserrat_medium"
+            android:background="@drawable/repo_black_type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_stats"
+            app:layout_constraintEnd_toStartOf="@id/repository_url"/>
+
+        <TextView
+            android:id="@+id/repository_url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Url"
+            android:fontFamily="@font/montserrat_regular"
+            app:layout_constraintStart_toEndOf="@id/label_url"
+            app:layout_constraintTop_toTopOf="@id/label_url"
+            app:layout_constraintBottom_toBottomOf="@id/label_url"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/label_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="5dp"
+            android:text="Size"
+            android:fontFamily="@font/montserrat_medium"
+            android:background="@drawable/repo_black_type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_url"
+            app:layout_constraintEnd_toStartOf="@id/repository_size"/>
+
+        <TextView
+            android:id="@+id/repository_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Size"
+            android:fontFamily="@font/montserrat_regular"
+            app:layout_constraintStart_toEndOf="@id/label_size"
+            app:layout_constraintTop_toTopOf="@id/label_size"
+            app:layout_constraintBottom_toBottomOf="@id/label_size"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/label_star_gazers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="5dp"
+            android:text="Star Gazers"
+            android:fontFamily="@font/montserrat_medium"
+            android:background="@drawable/repo_black_type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repository_size"
+            app:layout_constraintEnd_toStartOf="@id/repository_star_gazers"/>
+
+        <TextView
+            android:id="@+id/repository_star_gazers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Star Gazers"
+            android:fontFamily="@font/montserrat_regular"
+            app:layout_constraintStart_toEndOf="@id/label_star_gazers"
+            app:layout_constraintTop_toTopOf="@id/label_star_gazers"
+            app:layout_constraintBottom_toBottomOf="@id/label_star_gazers"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/label_watchers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="5dp"
+            android:text="Watchers"
+            android:fontFamily="@font/montserrat_medium"
+            android:background="@drawable/repo_black_type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repository_star_gazers"
+            app:layout_constraintEnd_toStartOf="@id/repository_watchers"/>
+
+        <TextView
+            android:id="@+id/repository_watchers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Watchers"
+            android:fontFamily="@font/montserrat_regular"
+            app:layout_constraintStart_toEndOf="@id/label_watchers"
+            app:layout_constraintTop_toTopOf="@id/label_watchers"
+            app:layout_constraintBottom_toBottomOf="@id/label_watchers"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/add_to_favourites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repository_watchers"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="1"
+            android:text="add to favourites"
+            android:fontFamily="@font/montserrat_medium"
+            android:textAllCaps="false"
+            android:drawableRight="@drawable/ic_favorite_border"
+            android:drawableTint="@color/white"
+            android:backgroundTint="@color/purple_700"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
